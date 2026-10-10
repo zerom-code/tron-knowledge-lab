@@ -1,0 +1,9 @@
+{
+  "date": "2026-10-10T01:03:39.961397+00:00",
+  "checks": 3,
+  "passed": [
+    "Empty textarea persists Failed with actionable parsing error",
+    "Retry keeps document identity and two version records",
+    "Version tab exposes failed and successful attempts"
+  ]
+}

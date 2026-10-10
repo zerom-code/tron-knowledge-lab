@@ -1,0 +1,83 @@
+{
+  "source": {
+    "id": "SRC-02",
+    "name": "TRON Docs",
+    "type": "Documentation",
+    "title": "TRON Resource Model",
+    "url": "https://developers.tron.network/docs/resource-model",
+    "external": true,
+    "date": "2026-10-09",
+    "fetchedAt": "2026-10-09T13:28:12.224727+00:00",
+    "documentId": "DOC-002",
+    "snapshotHash": "cf17abe6bb5bd545c5152c01e83283ff336eba05e7ad1c4f62ecd04c67d8b740"
+  },
+  "excerpts": [
+    {
+      "id": "CHK-201",
+      "documentId": "DOC-002",
+      "sectionId": "SEC-201",
+      "text": "Bandwidth, Energy, and TRON Power (TP, also called Voting Right) are TRON's three system resources, together forming the metering system that governs every interaction with the network:",
+      "status": "Verified",
+      "entities": [
+        "TRON",
+        "Energy",
+        "Bandwidth"
+      ],
+      "inputHash": "d1186899142ba6d0d16b53dc1fefc91ade4c3ad9a643adecb51b56fc0df1ba76",
+      "verificationNote": "Сверено с опубликованным первоисточником."
+    },
+    {
+      "id": "CHK-202",
+      "documentId": "DOC-002",
+      "sectionId": "SEC-202",
+      "text": "The Bandwidth and Energy limits and the free Bandwidth quota are set by chain parameters. Query wallet/getchainparameters for their current values.",
+      "status": "Verified",
+      "entities": [
+        "Energy",
+        "Bandwidth"
+      ],
+      "inputHash": "fc34754eca6d046d7891dae70cbf9bee7a21c7774456613a39212093a6676ec1",
+      "verificationNote": "Сверено с опубликованным первоисточником."
+    },
+    {
+      "id": "CHK-203",
+      "documentId": "DOC-002",
+      "sectionId": "SEC-203",
+      "text": "When stake and the free quota cannot cover an operation's Bandwidth or Energy cost, the network can burn TRX from the sender's balance at the current chain-parameter rates. For contract transactions, the caller's fee_limit also caps how much TRX can be burned for Energy, so a sufficient account balance alone does not guarantee execution. See Paying for resources & Energy sharing for the charging order, current-rate lookup, and deployer Energy sharing mechanism.",
+      "status": "Verified",
+      "entities": [
+        "Energy",
+        "Bandwidth",
+        "TRX"
+      ],
+      "inputHash": "dbe24d9753376558be529ac0cf28e978470893ded390a09b0444b2c20f9a8c51",
+      "verificationNote": "Сверено с опубликованным первоисточником."
+    },
+    {
+      "id": "CHK-204",
+      "documentId": "DOC-002",
+      "sectionId": "SEC-204",
+      "text": "Every transaction except queries consumes Bandwidth: its cost equals the transaction's byte count on-chain. Under the current getFreeNetLimit value, each account can use up to 600 free Bandwidth over a rolling 24-hour window; staking TRX provides additional Bandwidth from the current network-wide limit.",
+      "status": "Verified",
+      "entities": [
+        "Bandwidth",
+        "TRX"
+      ],
+      "inputHash": "8ed6ff62badafe867ddc15654ce5463ac9e6ba641740a253dd6fc82f1af8ce87",
+      "verificationNote": "Сверено с опубликованным первоисточником."
+    },
+    {
+      "id": "CHK-205",
+      "documentId": "DOC-002",
+      "sectionId": "SEC-205",
+      "text": "Smart contract calls additionally consume Energy. Each TVM instruction has a fixed Energy cost, and a call's total Energy is the sum of those costs. Energy has no free quota — accounts must either stake (or receive delegated) TRX to obtain it, or rely on the TRX-burn fallback.",
+      "status": "Verified",
+      "entities": [
+        "Energy",
+        "TRX"
+      ],
+      "inputHash": "944b68e0960fa6678f606f96fab9a5f6a5284125cf26e59b5c092e3dc2109ffd",
+      "verificationNote": "Сверено с опубликованным первоисточником."
+    }
+  ]
+}

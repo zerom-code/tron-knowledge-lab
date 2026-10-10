@@ -1,0 +1,100 @@
+{
+  "source": {
+    "id": "SRC-01",
+    "name": "TRON POOL ENERGY",
+    "type": "Website",
+    "title": "How TRON Energy Rental Works",
+    "url": "https://tronpoolenergy.com/how-it-works/",
+    "external": true,
+    "date": "2026-10-09",
+    "fetchedAt": "2026-10-09T13:28:13.171710+00:00",
+    "documentId": "DOC-001",
+    "snapshotHash": "32664470f0034719004a5e2cd16fcc4d4e5d9ab09a7199e543703bbe6153ded3"
+  },
+  "excerpts": [
+    {
+      "id": "CHK-101",
+      "documentId": "DOC-001",
+      "sectionId": "SEC-101",
+      "text": "The TRON network was designed so that transaction fees can be paid not only directly in TRX, but also through blockchain resources. This mechanism is embedded at the protocol level and is used to optimize the cost of smart contract operations, including USDT TRC-20 transfers.",
+      "status": "Verified",
+      "entities": [
+        "TRON",
+        "USDT TRC-20",
+        "TRX"
+      ],
+      "inputHash": "69342bfdb97ca9d0b258a86ce5c384b6981dcfb8c092361a0949dd84c3593cbf",
+      "verificationNote": "Сверено с опубликованным первоисточником."
+    },
+    {
+      "id": "CHK-102",
+      "documentId": "DOC-001",
+      "sectionId": "SEC-102",
+      "text": "An energy rental service provides access to the required TRON network resources using the standard delegation mechanism.",
+      "status": "Verified",
+      "entities": [
+        "TRON",
+        "Energy"
+      ],
+      "inputHash": "916220b9a29ad85a4d3da9a8820426ed024044384a8164adfdf02d9630a96078",
+      "verificationNote": "Сверено с опубликованным первоисточником."
+    },
+    {
+      "id": "CHK-103",
+      "documentId": "DOC-001",
+      "sectionId": "SEC-103",
+      "text": "If the sender’s address does not have sufficient Energy and Bandwidth, the network automatically compensates for the missing resources by burning TRX.",
+      "status": "Verified",
+      "entities": [
+        "Energy",
+        "Bandwidth",
+        "TRX"
+      ],
+      "inputHash": "9134b7beee4428e38e0aa5de93477486eb24310bdee3316b2e5a02d19d58edd7",
+      "verificationNote": "Сверено с опубликованным первоисточником."
+    },
+    {
+      "id": "CHK-104",
+      "documentId": "DOC-001",
+      "sectionId": "SEC-104",
+      "text": "When sufficient Energy and Bandwidth are available, the same transaction is executed without additional TRX being burned.In this case, the transaction fee is effectively covered by network resources rather than the TRX balance of the wallet.",
+      "status": "Verified",
+      "entities": [
+        "Energy",
+        "Bandwidth",
+        "TRX"
+      ],
+      "inputHash": "b1a1faa179aeec749cec896dada3f1ca66fd10ceacc8272abc7d3805eb3a7480",
+      "verificationNote": "Сверено с опубликованным первоисточником."
+    },
+    {
+      "id": "CHK-105",
+      "documentId": "DOC-001",
+      "sectionId": "SEC-105",
+      "text": "However, TRON’s resource model allows the execution of the USDT smart contract to be paid with Energy instead of directly burning TRX. When energy rental is used, the effective cost of a single USDT TRC-20 transfer can be up to 65% lower compared to standard TRX-based fees. For this reason, in recurring transfer scenarios, using resources becomes not an alternative but a more rational way to interact with the network.",
+      "status": "Unverified",
+      "entities": [
+        "TRON",
+        "Energy",
+        "USDT TRC-20",
+        "TRX"
+      ],
+      "inputHash": "0abf1b7f55177b7f19d953a3b97d027a3c4110f96dbcbd2eda40a9c2e14a774c",
+      "verificationNote": "Процент экономии заявлен сервисом; независимого расчёта в базе нет."
+    },
+    {
+      "id": "CHK-106",
+      "documentId": "DOC-001",
+      "sectionId": "SEC-106",
+      "text": "All data related to TRON network resources is public and can be verified directly on the blockchain. Energy and Bandwidth delegation is not an internal service parameter — it is recorded at the network level.",
+      "status": "Verified",
+      "entities": [
+        "TRON",
+        "Energy",
+        "Bandwidth"
+      ],
+      "inputHash": "fb7285b9b598d651211aa56700ba04547e800f249d489a1465cd0fb9ef8b0e7f",
+      "verificationNote": "Сверено с опубликованным первоисточником."
+    }
+  ]
+}

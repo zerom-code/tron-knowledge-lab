@@ -1,0 +1,18 @@
+{
+  "date": "2026-10-10T01:03:58.243436+00:00",
+  "version": "3.1.0",
+  "compose": "clean PostgreSQL volume",
+  "openai_key_present": false,
+  "health": "ready",
+  "pytest": {
+    "passed": 25,
+    "failed": 0
+  },
+  "browser_checks": 26,
+  "migrations": "5 applied",
+  "seed": {
+    "documents": 4,
+    "chunks": 22,
+    "facts": 8
+  }
+}

@@ -1,0 +1,127 @@
+{
+  "date": "2026-10-09T23:16:22.826360+00:00",
+  "checks": 13,
+  "passed": [
+    "New article is durably queued",
+    "Missing body produces a persisted parsing failure",
+    "Retry keeps the document identity",
+    "Python pipeline finishes with actual embeddings",
+    "Both attempts remain in version history",
+    "Processed does not auto-verify new knowledge",
+    "Reload reads the persisted document",
+    "Source review persists facts with evidence links",
+    "New document participates in BOTH database search paths",
+    "Its reviewed evidence builds sufficient bounded context",
+    "New answer passes paragraph evidence review",
+    "Answer cites only the newly imported source chunks",
+    "Excluding document removes it from both retrieval paths"
+  ],
+  "documentId": "DOC-36e30e1273a5",
+  "answer": {
+    "answerable": true,
+    "paragraphs": [
+      {
+        "text": "В блокчейне TRON операции измеряются двумя системными ресурсами: Bandwidth и Energy. Bandwidth покрывает размер транзакции в байтах, то есть его потребление зависит от размера транзакции. Energy покрывает выполнение смарт-контрактов и зависит от объема вычислений, которые выполняет контракт. Оба ресурса можно получить, застейкав TRX, и они восстанавливаются в течение 24 часов. При этом Bandwidth имеет бесплатную квоту на аккаунт, а Energy — нет.",
+        "chunk_ids": [
+          "VER-5aeeb52f132649b695e0a34a9abaafe9-CHK-0"
+        ]
+      },
+      {
+        "text": "Выполнение смарт-контрактов в TRON потребляет Energy. Каждая инструкция TRON Virtual Machine (TVM) имеет фиксированную стоимость в Energy, а общее потребление Energy при вызове контракта равно сумме этих стоимостей.",
+        "chunk_ids": [
+          "VER-5aeeb52f132649b695e0a34a9abaafe9-CHK-1"
+        ]
+      }
+    ],
+    "limitations": [],
+    "model": "gpt-4.1-mini-2025-04-14",
+    "usage": {
+      "prompt_tokens": 1066,
+      "completion_tokens": 241,
+      "total_tokens": 1307,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      }
+    },
+    "generatedAt": "2026-10-09T23:16:20.950893+00:00",
+    "mode": "live",
+    "evidenceReview": {
+      "passed": true,
+      "model": "gpt-4.1-mini-2025-04-14",
+      "checkedAt": "2026-10-09T23:16:22.777484+00:00"
+    },
+    "runId": "RUN-9e6cbae99f854df58002363216e44843",
+    "answerId": "ANS-3bf07d7376e0fc569ca81083571ca3279e3eccb4",
+    "context": {
+      "project_id": "tpe",
+      "question": "Как ресурсы Energy и Bandwidth связаны со стоимостью транзакций TRON?",
+      "chunks": [
+        {
+          "id": "VER-5aeeb52f132649b695e0a34a9abaafe9-CHK-0",
+          "document_id": "DOC-36e30e1273a5",
+          "version": "2-9b991e",
+          "text": "TRON meters on-chain operations through two system resources. Bandwidth covers the byte size of every transaction stored on-chain, so it scales with how big the transaction is. Energy covers smart contract execution, so it scales with how much computation a contract performs. Both can be obtained by staking TRX and recover continuously over a rolling 24-hour window. Bandwidth also has a per-account free quota; Energy does not.",
+          "source_id": "SRC-c4a4643a57eb",
+          "verification_status": "Verified",
+          "relevance_score": 1
+        },
+        {
+          "id": "VER-5aeeb52f132649b695e0a34a9abaafe9-CHK-1",
+          "document_id": "DOC-36e30e1273a5",
+          "version": "2-9b991e",
+          "text": "Smart contract execution on TRON consumes Energy. Each TRON Virtual Machine (TVM) instruction has a fixed Energy cost, and a contract call's total Energy consumption equals the sum of those costs.",
+          "source_id": "SRC-c4a4643a57eb",
+          "verification_status": "Verified",
+          "relevance_score": 0.7
+        }
+      ],
+      "facts": [
+        {
+          "id": "VER-5aeeb52f132649b695e0a34a9abaafe9-CHK-0-CLAIM",
+          "text": "TRON meters on-chain operations through two system resources. Bandwidth covers the byte size of every transaction stored on-chain, so it scales with how big the transaction is. Energy covers smart contract execution, so it scales with how much computation a contract performs. Both can be obtained by staking TRX and recover continuously over a rolling 24-hour window. Bandwidth also has a per-account free quota; Energy does not.",
+          "status": "Verified",
+          "evidence_chunk_ids": [
+            "VER-5aeeb52f132649b695e0a34a9abaafe9-CHK-0"
+          ],
+          "source_ids": [
+            "SRC-c4a4643a57eb"
+          ]
+        },
+        {
+          "id": "VER-5aeeb52f132649b695e0a34a9abaafe9-CHK-1-CLAIM",
+          "text": "Smart contract execution on TRON consumes Energy. Each TRON Virtual Machine (TVM) instruction has a fixed Energy cost, and a contract call's total Energy consumption equals the sum of those costs.",
+          "status": "Verified",
+          "evidence_chunk_ids": [
+            "VER-5aeeb52f132649b695e0a34a9abaafe9-CHK-1"
+          ],
+          "source_ids": [
+            "SRC-c4a4643a57eb"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "id": "SRC-c4a4643a57eb",
+          "name": "Загруженная статья",
+          "title": "QA fixture — real resource excerpts",
+          "url": "https://developers.tron.network/docs/bandwidth-and-energy",
+          "document_id": "DOC-36e30e1273a5",
+          "snapshot_date": "2026-10-09",
+          "snapshot_hash": "9b991e1fcd8c67d3cec4c912c63139e5ada349bfccfacdf5e5c169c72a28fd6c"
+        }
+      ],
+      "confidence": {
+        "level": "Sufficient",
+        "policy": "query coverage; >=2 Verified chunks with rerank >=0.7; >=2 supported facts; source provenance",
+        "reasons": []
+      }
+    }
+  }
+}

@@ -1,0 +1,172 @@
+{
+  "project_id": "tpe",
+  "question": "How can I reduce USDT TRC-20 transaction fees?",
+  "chunks": [
+    {
+      "id": "CHK-101",
+      "document_id": "DOC-001",
+      "version": "1-326644",
+      "text": "The TRON network was designed so that transaction fees can be paid not only directly in TRX, but also through blockchain resources. This mechanism is embedded at the protocol level and is used to optimize the cost of smart contract operations, including USDT TRC-20 transfers.",
+      "source_id": "SRC-01",
+      "verification_status": "Verified",
+      "relevance_score": 1
+    },
+    {
+      "id": "CHK-104",
+      "document_id": "DOC-001",
+      "version": "1-326644",
+      "text": "When sufficient Energy and Bandwidth are available, the same transaction is executed without additional TRX being burned.In this case, the transaction fee is effectively covered by network resources rather than the TRX balance of the wallet.",
+      "source_id": "SRC-01",
+      "verification_status": "Verified",
+      "relevance_score": 1
+    },
+    {
+      "id": "CHK-203",
+      "document_id": "DOC-002",
+      "version": "1-cf17ab",
+      "text": "When stake and the free quota cannot cover an operation's Bandwidth or Energy cost, the network can burn TRX from the sender's balance at the current chain-parameter rates. For contract transactions, the caller's fee_limit also caps how much TRX can be burned for Energy, so a sufficient account balance alone does not guarantee execution. See Paying for resources & Energy sharing for the charging order, current-rate lookup, and deployer Energy sharing mechanism.",
+      "source_id": "SRC-02",
+      "verification_status": "Verified",
+      "relevance_score": 0.7
+    },
+    {
+      "id": "CHK-401",
+      "document_id": "DOC-004",
+      "version": "1-8ecbf9",
+      "text": "Purchased or rented TRON Energy and Bandwidth do not appear as TRX or USDT. In Trust Wallet, you can check available resources, while TRONSCAN lets you view them directly for your TRON address and verify delegation.",
+      "source_id": "SRC-04",
+      "verification_status": "Verified",
+      "relevance_score": 0.7
+    },
+    {
+      "id": "CHK-303",
+      "document_id": "DOC-003",
+      "version": "1-5ea9e6",
+      "text": "Every transaction on TRON except read-only queries consumes Bandwidth. A transaction's Bandwidth consumption equals its byte size on-chain — one byte uses one Bandwidth. The current per-account free quota is 600 Bandwidth per rolling 24-hour window. This value is controlled by chain parameter getFreeNetLimit; query wallet/getchainparameters before relying on it.",
+      "source_id": "SRC-03",
+      "verification_status": "Verified",
+      "relevance_score": 0.7
+    },
+    {
+      "id": "CHK-301",
+      "document_id": "DOC-003",
+      "version": "1-5ea9e6",
+      "text": "TRON meters on-chain operations through two system resources. Bandwidth covers the byte size of every transaction stored on-chain, so it scales with how big the transaction is. Energy covers smart contract execution, so it scales with how much computation a contract performs. Both can be obtained by staking TRX and recover continuously over a rolling 24-hour window. Bandwidth also has a per-account free quota; Energy does not.",
+      "source_id": "SRC-03",
+      "verification_status": "Verified",
+      "relevance_score": 0.7
+    }
+  ],
+  "facts": [
+    {
+      "id": "FACT-01",
+      "text": "Energy is consumed when a smart contract executes.",
+      "status": "Verified",
+      "evidence_chunk_ids": [
+        "CHK-301"
+      ],
+      "source_ids": [
+        "SRC-03"
+      ]
+    },
+    {
+      "id": "FACT-02",
+      "text": "Bandwidth pays for the transaction size in bytes.",
+      "status": "Verified",
+      "evidence_chunk_ids": [
+        "CHK-303",
+        "CHK-301"
+      ],
+      "source_ids": [
+        "SRC-03"
+      ]
+    },
+    {
+      "id": "FACT-03",
+      "text": "When available resources are insufficient, the network can burn TRX to cover the shortfall.",
+      "status": "Verified",
+      "evidence_chunk_ids": [
+        "CHK-203"
+      ],
+      "source_ids": [
+        "SRC-02"
+      ]
+    },
+    {
+      "id": "FACT-05",
+      "text": "Energy has no free quota.",
+      "status": "Verified",
+      "evidence_chunk_ids": [
+        "CHK-301"
+      ],
+      "source_ids": [
+        "SRC-03"
+      ]
+    },
+    {
+      "id": "FACT-06",
+      "text": "Current resource parameters should be queried from wallet/getchainparameters.",
+      "status": "Verified",
+      "evidence_chunk_ids": [
+        "CHK-303"
+      ],
+      "source_ids": [
+        "SRC-03"
+      ]
+    },
+    {
+      "id": "FACT-07",
+      "text": "TRONSCAN can show the resources available to a specific TRON address.",
+      "status": "Verified",
+      "evidence_chunk_ids": [
+        "CHK-401"
+      ],
+      "source_ids": [
+        "SRC-04"
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "SRC-01",
+      "name": "TRON POOL ENERGY",
+      "title": "How TRON Energy Rental Works",
+      "url": "https://tronpoolenergy.com/how-it-works/",
+      "document_id": "DOC-001",
+      "snapshot_date": "2026-10-09",
+      "snapshot_hash": "32664470f0034719004a5e2cd16fcc4d4e5d9ab09a7199e543703bbe6153ded3"
+    },
+    {
+      "id": "SRC-02",
+      "name": "TRON Docs",
+      "title": "TRON Resource Model",
+      "url": "https://developers.tron.network/docs/resource-model",
+      "document_id": "DOC-002",
+      "snapshot_date": "2026-10-09",
+      "snapshot_hash": "cf17abe6bb5bd545c5152c01e83283ff336eba05e7ad1c4f62ecd04c67d8b740"
+    },
+    {
+      "id": "SRC-03",
+      "name": "TRON Docs",
+      "title": "Bandwidth and Energy",
+      "url": "https://developers.tron.network/docs/bandwidth-and-energy",
+      "document_id": "DOC-003",
+      "snapshot_date": "2026-10-09",
+      "snapshot_hash": "5ea9e612e85029caed8d056a8c8d26c0872cbc71b3ad5ab215eeee1588e73973"
+    },
+    {
+      "id": "SRC-04",
+      "name": "TRON POOL ENERGY",
+      "title": "How to Check Purchased Energy and Bandwidth in Trust Wallet and TRONSCAN",
+      "url": "https://tronpoolenergy.com/blog/check-energy-bandwidth-trust-wallet-tronscan/",
+      "document_id": "DOC-004",
+      "snapshot_date": "2026-10-09",
+      "snapshot_hash": "8ecbf9713da9d86f151fe30f4236d69a13ff04aef789e16a5eff99b89afc5791"
+    }
+  ],
+  "confidence": {
+    "level": "Sufficient",
+    "policy": "query coverage; >=2 Verified chunks with rerank >=0.7; >=2 supported facts; source provenance",
+    "reasons": []
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "date": "2026-10-10T00:56:47.235227+00:00",
+  "checks": 19,
+  "passed": [
+    "Import directly exposes password field and its .env location",
+    "Missing password error is inside the modal",
+    "Form values survive authentication failure",
+    "Wrong password keeps a visible actionable error",
+    "Enter validates password without closing import",
+    "Connected state removes credential from input",
+    "Contiguous paragraphs share one section",
+    "Cached source embeddings finish without auto-verification",
+    "Editor verification persists two evidence-linked facts",
+    "Saved mode never invents ratings for new chunk IDs",
+    "Saved mode offers explicit paid Live search action",
+    "Live action runs actual OpenAI and updates visible mode",
+    "Live reranking covers only the imported source",
+    "Imported source generates a citation-checked Live answer",
+    "Archiving the imported fixture persists in PostgreSQL",
+    "Disconnect removes editor access",
+    "Password modal fits a mobile viewport",
+    "Empty import can close without validation",
+    "Editor flow has no unhandled JavaScript errors"
+  ],
+  "errors": [],
+  "live": true
+}

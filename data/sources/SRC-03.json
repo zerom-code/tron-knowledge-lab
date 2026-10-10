@@ -1,0 +1,98 @@
+{
+  "source": {
+    "id": "SRC-03",
+    "name": "TRON Docs",
+    "type": "Documentation",
+    "title": "Bandwidth and Energy",
+    "url": "https://developers.tron.network/docs/bandwidth-and-energy",
+    "external": true,
+    "date": "2026-10-09",
+    "fetchedAt": "2026-10-09T13:28:12.916244+00:00",
+    "documentId": "DOC-003",
+    "snapshotHash": "5ea9e612e85029caed8d056a8c8d26c0872cbc71b3ad5ab215eeee1588e73973"
+  },
+  "excerpts": [
+    {
+      "id": "CHK-301",
+      "documentId": "DOC-003",
+      "sectionId": "SEC-301",
+      "text": "TRON meters on-chain operations through two system resources. Bandwidth covers the byte size of every transaction stored on-chain, so it scales with how big the transaction is. Energy covers smart contract execution, so it scales with how much computation a contract performs. Both can be obtained by staking TRX and recover continuously over a rolling 24-hour window. Bandwidth also has a per-account free quota; Energy does not.",
+      "status": "Verified",
+      "entities": [
+        "TRON",
+        "Energy",
+        "Bandwidth",
+        "TRX"
+      ],
+      "inputHash": "894c9a4382dacacc1f760893807d71326afefcc7916aa6c7d80f390e53d90baa",
+      "verificationNote": "Сверено с опубликованным первоисточником."
+    },
+    {
+      "id": "CHK-302",
+      "documentId": "DOC-003",
+      "sectionId": "SEC-302",
+      "text": "When stake plus the free quota are insufficient, TRX is burned to cover the shortfall. The burn rates and the deployer Energy sharing mechanism are covered in Paying for resources & Energy sharing.",
+      "status": "Verified",
+      "entities": [
+        "Energy",
+        "TRX"
+      ],
+      "inputHash": "617cd027b75f7d6d427fd0eb5bc31e51e6bec0d81cd339e2ca6499e8d7918b0d",
+      "verificationNote": "Сверено с опубликованным первоисточником."
+    },
+    {
+      "id": "CHK-303",
+      "documentId": "DOC-003",
+      "sectionId": "SEC-303",
+      "text": "Every transaction on TRON except read-only queries consumes Bandwidth. A transaction's Bandwidth consumption equals its byte size on-chain — one byte uses one Bandwidth. The current per-account free quota is 600 Bandwidth per rolling 24-hour window. This value is controlled by chain parameter getFreeNetLimit; query wallet/getchainparameters before relying on it.",
+      "status": "Verified",
+      "entities": [
+        "TRON",
+        "Bandwidth"
+      ],
+      "inputHash": "5a4a5930ae7a844d78bd490348aab9441365bc02f9741f594de3c243fd768577",
+      "verificationNote": "Сверено с опубликованным первоисточником."
+    },
+    {
+      "id": "CHK-304",
+      "documentId": "DOC-003",
+      "sectionId": "SEC-304",
+      "text": "Smart contract execution on TRON consumes Energy. Each TRON Virtual Machine (TVM) instruction has a fixed Energy cost, and a contract call's total Energy consumption equals the sum of those costs. Unlike Bandwidth, Energy has no free quota — every account that calls a smart contract must either have staked Energy in advance, receive delegated Energy, or rely on the TRX-burn fallback.",
+      "status": "Verified",
+      "entities": [
+        "TRON",
+        "Energy",
+        "Bandwidth",
+        "TRX"
+      ],
+      "inputHash": "471b4948b115de15729780a181fac6decbac5ed5e8e26143f96f37d5f24e27bf",
+      "verificationNote": "Сверено с опубликованным первоисточником."
+    },
+    {
+      "id": "CHK-305",
+      "documentId": "DOC-003",
+      "sectionId": "SEC-305",
+      "text": "An account can delegate its earned Bandwidth or Energy to another account through DelegateResourceContract. The receiving account uses the delegated resource directly without staking itself. Delegation is reversible and supports an optional lock period for added safety. CEXs and DApp operators commonly use this mechanism to absorb resource costs on behalf of their users from a single staking pool.",
+      "status": "Verified",
+      "entities": [
+        "Energy",
+        "Bandwidth"
+      ],
+      "inputHash": "282bdd97e2ea73e25cf85add44eccc95852e7ed0274f0464e02bff97dca8b0c9",
+      "verificationNote": "Сверено с опубликованным первоисточником."
+    },
+    {
+      "id": "CHK-306",
+      "documentId": "DOC-003",
+      "sectionId": "SEC-306",
+      "text": "Bandwidth usage and staked Energy usage decay over a rolling 24-hour window. If no additional resource is consumed, an amount used at one time is fully recovered after 24 hours. New consumption is combined with the unrecovered usage and recalculates the recovery schedule, so the available amount depends on the account's activity throughout the window.",
+      "status": "Verified",
+      "entities": [
+        "Energy",
+        "Bandwidth"
+      ],
+      "inputHash": "9687b1694b73ca34f86313d79e8e40477d50544155f36c25986391ece8c40ff4",
+      "verificationNote": "Сверено с опубликованным первоисточником."
+    }
+  ]
+}

@@ -1,0 +1,273 @@
+[word/document.xml]
+Тестовое задание: прототип узлов Knowledge Base + RAG
+Цель задания
+Перед началом разработки необходимо проверить понимание архитектуры проекта и подход к проектированию интерфейса для AI/SEO-платформы.
+Нужно подготовить прототип двух связанных узлов:
+Knowledge Base → RAG → AI Agent
+Прототип можно выполнить в Moqups, Figma или другом удобном инструменте.
+Нам не нужен полноценный UI-дизайн. Основная задача — показать логику системы, структуру данных, взаимодействие компонентов и пользовательский сценарий.
+1. Knowledge Base
+Представь, что Knowledge Base является единой базой знаний проекта TRON POOL ENERGY.
+В неё поступают данные из:
+сайта;
+TRON Docs;
+GSC;
+GA4;
+Ahrefs;
+AI Visibility;
+других внешних источников.
+На первом этапе достаточно показать работу с контентом сайта.
+Необходимо показать:
+Список документов / статей
+Для каждой статьи желательно отображать:
+название;
+источник;
+язык;
+статус;
+дату обновления;
+количество chunks;
+наличие embeddings;
+версию.
+Например:
+USDT TRC-20 Transaction Fees
+Source: TRON POOL ENERGY
+Language: EN
+Status: Processed
+Chunks: 48
+Embeddings: 48
+Version: 1.2
+2. Структура документа
+При открытии документа показать его декомпозицию:
+Article → Section → Chunk
+Также желательно показать связанные:
+Facts → Claims → Entities → Topics → Sources
+Например:
+Article
+│
+├── Section
+│   ├── Chunk
+│   ├── Chunk
+│   └── Chunk
+│
+├── Facts
+├── Claims
+├── Entities
+├── Topics
+└── Sources
+Пользователь должен понимать, из каких элементов состоит знание, которое затем будет использовать RAG.
+3. Обработка документа
+Покажи, что происходит с новой статьёй после её поступления в Knowledge Base:
+Article
+↓
+Parsing
+↓
+Sections
+↓
+Chunks
+↓
+Facts / Claims / Entities
+↓
+Embeddings
+↓
+Knowledge Base
+Можно показать статусы:
+Queued;
+Processing;
+Processed;
+Failed.
+Также желательно показать возможную ошибку обработки.
+4. RAG Search
+Создай отдельный экран RAG Search.
+Пользователь задаёт вопрос:
+How can I reduce USDT TRC-20 transaction fees?
+Покажи, как RAG обрабатывает этот запрос.
+Пример логики:
+User Query
+↓
+Query Understanding
+↓
+Entity Extraction / Filters
+↓
+Hybrid Search
+┌───────────────┐
+│ Vector Search │
+│ Full-Text     │
+└───────┬───────┘
+↓
+RRF
+↓
+Reranking
+↓
+Context Builder
+5. Результаты поиска
+Покажи найденные RAG результаты.
+Для каждого результата желательно отображать:
+chunk;
+источник;
+relevance / score;
+язык;
+дату;
+статус проверки;
+связанный документ.
+Например:
+1. "Typical fee: 0.1–1 USDT..."
+Source: TRON POOL ENERGY
+Relevance: 0.92
+Status: Verified
+2. "How TRON Energy works..."
+Source: TRON Docs
+Relevance: 0.87
+Status: Verified
+3. "USDT TRC-20 transaction..."
+Source: TRON POOL ENERGY
+Relevance: 0.81
+Status: Verified
+6. Context Builder
+Это важная часть задания.
+Покажи, что RAG не передаёт AI всю Knowledge Base.
+RAG выбирает только релевантную информацию и формирует компактный контекст.
+Например:
+User Question
+↓
+RAG Search
+↓
+Top relevant chunks
+↓
+Relevant Facts
+↓
+Sources
+↓
+Verification status
+↓
+Context Builder
+↓
+AI Agent
+На экране желательно показать:
+Retrieved Context
+Какие именно chunks были выбраны.
+Sources
+Откуда они получены.
+Facts
+Какие факты были использованы.
+Confidence
+Насколько система уверена в найденной информации.
+7. AI Agent
+Покажи следующий этап:
+RAG → AI Agent
+Например:
+Question:
+How can I reduce USDT TRC-20 transaction fees?
+↓
+RAG Context:
+5 relevant chunks
+3 verified facts
+3 sources
+↓
+AI Agent
+↓
+Answer
+В ответе AI желательно показать источники, на основании которых сформирован ответ.
+8. Low Confidence / недостаток данных
+Обязательно предусмотрите ситуацию, когда RAG не нашёл достаточно информации.
+Например:
+Confidence: Low
+Not enough verified information
+to answer this question.
+Possible sources:
+- Article A
+- Article B
+- TRON Docs
+AI в этом случае не должен уверенно придумывать ответ.
+Нужно показать, как это состояние будет выглядеть в интерфейсе.
+9. Фильтры и Metadata
+Предусмотри возможность фильтрации RAG-поиска.
+Например:
+Language;
+Source;
+Topic;
+Entity;
+Document;
+Date;
+Verification status.
+Можно предложить собственные дополнительные фильтры.
+10. Архитектура взаимодействия
+Отдельно покажи небольшую схему взаимодействия компонентов.
+Ожидаемая логика:
+Knowledge Base
+│
+│
+PostgreSQL + pgvector
+│
+▼
+RAG
+│
+┌────────────┼────────────┐
+│            │            │
+Vector Search  Full-Text     Metadata
+│            │            │
+└────────────┼────────────┘
+↓
+RRF
+↓
+Reranking
+↓
+Context Builder
+↓
+AI Agent
+Важно показать понимание принципа:
+RAG использует Knowledge Base, но Knowledge Base и RAG — не одно и то же.
+Knowledge Base отвечает за хранение и структурирование знаний.
+RAG отвечает за поиск релевантных знаний и формирование контекста для AI.
+11. Что мы хотим оценить
+Нас интересует прежде всего не визуальная красота.
+Будем оценивать:
+Архитектурное понимание
+Понимаешь ли ты различие между:
+Knowledge Base;
+PostgreSQL;
+pgvector;
+embeddings;
+RAG;
+AI Agent.
+Логику RAG
+Понимаешь ли ты:
+hybrid search;
+vector search;
+full-text search;
+RRF;
+reranking;
+context builder;
+confidence;
+sources.
+Работу с данными
+Понимаешь ли ты, как:
+Article → Section → Chunk → Fact/Claim → Entity → Topic → Source
+связаны между собой.
+UX
+Понятно ли пользователю:
+где находится знание;
+откуда оно получено;
+почему именно этот результат найден;
+какие данные переданы AI;
+насколько результат надёжен.
+12. Что предоставить
+В результате необходимо предоставить:
+Ссылку на прототип.
+Основные экраны:
+Knowledge Base;
+Document;
+RAG Search;
+Retrieved Context;
+AI Answer;
+Low Confidence.
+Схему взаимодействия:
+Knowledge Base → RAG → AI Agent
+Краткое описание архитектурных решений.
+Кратко указать, какие моменты ты считаешь спорными или требующими дополнительного обсуждения.
+Ограничение по времени
+Ориентир:
+3–5 часов.
+Не требуется создавать полноценный дизайн всей платформы.
+Нужно качественно проработать именно один сценарий от хранения знания до получения AI-ответа.
+Главный сценарий:
+Article → Knowledge Base → RAG Search → Retrieved Context → AI Agent → Answer

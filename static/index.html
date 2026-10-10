@@ -1,0 +1,210 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="theme-color" content="#13271e" />
+    <meta
+      name="description"
+      content="Knowledge Base, hybrid retrieval and answers with sources."
+    />
+    <title>TRON Knowledge Lab</title>
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="/styles.css" />
+    <script src="/bootstrap.js" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Перейти к содержимому</a>
+    <div id="app">
+      <div class="empty">
+        <h1>Knowledge Lab</h1>
+        <p>Загрузка…</p>
+      </div>
+    </div>
+    <div id="toast" class="toast" role="status" aria-live="polite"></div>
+    <dialog id="import-dialog" aria-labelledby="import-title">
+      <form method="dialog" class="dialog-body">
+        <div class="dialog-top">
+          <h2 id="import-title">Добавить статью</h2>
+          <button
+            class="icon-button"
+            aria-label="Закрыть"
+            type="button"
+            data-action="close-dialog"
+          >
+            ×
+          </button>
+        </div>
+        <p class="muted">
+          Укажите URL и вставьте текст. После обработки фрагменты нужно сверить
+          с источником.
+        </p>
+        <div
+          data-dialog-error
+          class="dialog-message error"
+          role="alert"
+          hidden
+        ></div>
+        <div
+          data-dialog-status
+          class="dialog-message success"
+          role="status"
+          hidden
+        ></div>
+        <div data-editor-access></div>
+        <label class="field"
+          >Название<input
+            id="import-name"
+            maxlength="300"
+            required
+            placeholder="Bandwidth and Energy — TRON Docs"
+        /></label>
+        <label class="field"
+          >Источник<input
+            type="url"
+            id="import-url"
+            required
+            placeholder="https://developers.tron.network/docs/bandwidth-and-energy"
+        /></label>
+        <label class="field"
+          >Язык<select id="import-language">
+            <option>EN</option>
+            <option>RU</option>
+            <option>UK</option>
+            <option>TR</option>
+            <option>ES</option>
+          </select></label
+        >
+        <label class="field"
+          >Тема<input
+            id="import-topic"
+            maxlength="120"
+            required
+            value="Resource model"
+        /></label>
+        <label class="field"
+          >Текст статьи<textarea
+            id="import-body"
+            rows="6"
+            maxlength="12000"
+            placeholder="Текст источника; пустой текст приведёт к ошибке обработки."
+          ></textarea>
+        </label>
+        <p class="field-hint">
+          Для новых embeddings используется OpenAI. Режим поиска на импорт не
+          влияет.
+        </p>
+        <div class="dialog-actions">
+          <button
+            type="button"
+            class="button primary"
+            data-action="import-success"
+          >
+            Начать обработку
+          </button>
+        </div>
+      </form>
+    </dialog>
+    <dialog id="api-dialog" aria-labelledby="api-title">
+      <form method="dialog" class="dialog-body">
+        <div class="dialog-top">
+          <h2 id="api-title">Настройки</h2>
+          <button
+            class="icon-button"
+            aria-label="Закрыть"
+            type="button"
+            data-action="close-dialog"
+          >
+            ×
+          </button>
+        </div>
+        <div
+          data-dialog-error
+          class="dialog-message error"
+          role="alert"
+          hidden
+        ></div>
+        <div
+          data-dialog-status
+          class="dialog-message success"
+          role="status"
+          hidden
+        ></div>
+        <div data-editor-access></div>
+        <label class="field"
+          >Режим поиска<select id="ai-mode">
+            <option value="saved">Сохранённые примеры</option>
+            <option value="live">Live OpenAI</option>
+          </select></label
+        >
+        <p class="field-hint">
+          Примеры используют сохранённые оценки и ответы. Live OpenAI выполняет
+          новые запросы и расходует баланс API.
+        </p>
+        <div class="dialog-actions">
+          <button type="button" class="button primary" data-action="save-api">
+            Сохранить настройки
+          </button>
+        </div>
+      </form>
+    </dialog>
+    <dialog id="review-dialog" aria-labelledby="review-title">
+      <form method="dialog" class="dialog-body">
+        <div class="dialog-top">
+          <h2 id="review-title">Сверка с источником</h2>
+          <button
+            class="icon-button"
+            aria-label="Закрыть"
+            type="button"
+            data-action="close-dialog"
+          >
+            ×
+          </button>
+        </div>
+        <div
+          data-dialog-error
+          class="dialog-message error"
+          role="alert"
+          hidden
+        ></div>
+        <div
+          data-dialog-status
+          class="dialog-message success"
+          role="status"
+          hidden
+        ></div>
+        <div data-editor-access></div>
+        <p id="review-text"></p>
+        <p>
+          <a id="review-source" target="_blank" rel="noopener noreferrer"
+            >Открыть источник</a
+          >
+        </p>
+        <label class="field"
+          >Комментарий проверки<textarea
+            id="review-note"
+            minlength="15"
+            maxlength="1000"
+            required
+            rows="3"
+            placeholder="Какую информацию вы сверили и с каким источником"
+          ></textarea>
+        </label>
+        <label class="review-ack"
+          ><input type="checkbox" id="review-checked" required /> Текст сверен с
+          указанным источником.</label
+        >
+        <div class="dialog-actions">
+          <button
+            type="button"
+            class="button primary"
+            data-action="verify-chunk"
+          >
+            Сохранить проверку
+          </button>
+        </div>
+      </form>
+    </dialog>
+    <noscript><p>Включите JavaScript.</p></noscript>
+  </body>
+</html>

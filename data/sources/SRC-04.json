@@ -1,0 +1,79 @@
+{
+  "source": {
+    "id": "SRC-04",
+    "name": "TRON POOL ENERGY",
+    "type": "Website",
+    "title": "How to Check Purchased Energy and Bandwidth in Trust Wallet and TRONSCAN",
+    "url": "https://tronpoolenergy.com/blog/check-energy-bandwidth-trust-wallet-tronscan/",
+    "external": true,
+    "date": "2026-10-09",
+    "fetchedAt": "2026-10-09T13:34:48.367603+00:00",
+    "documentId": "DOC-004",
+    "snapshotHash": "8ecbf9713da9d86f151fe30f4236d69a13ff04aef789e16a5eff99b89afc5791"
+  },
+  "excerpts": [
+    {
+      "id": "CHK-401",
+      "documentId": "DOC-004",
+      "sectionId": "SEC-401",
+      "text": "Purchased or rented TRON Energy and Bandwidth do not appear as TRX or USDT. In Trust Wallet, you can check available resources, while TRONSCAN lets you view them directly for your TRON address and verify delegation.",
+      "status": "Verified",
+      "entities": [
+        "TRON",
+        "Energy",
+        "Bandwidth",
+        "TRX"
+      ],
+      "inputHash": "ad818772de1564357f9f0285da00e50b5aaf16d75f0fa4f7b34b8426551dc830",
+      "verificationNote": "Сверено с опубликованным первоисточником."
+    },
+    {
+      "id": "CHK-402",
+      "documentId": "DOC-004",
+      "sectionId": "SEC-402",
+      "text": "If another address provides them, delegation is used: the resource becomes available to the recipient, but the TRX themselves are not transferred to their wallet.",
+      "status": "Verified",
+      "entities": [
+        "TRX"
+      ],
+      "inputHash": "af5fce23429883c6911bb84b7ac0d748e2f6c7692b66608312e6b72089d1d3b2",
+      "verificationNote": "Сверено с опубликованным первоисточником."
+    },
+    {
+      "id": "CHK-403",
+      "documentId": "DOC-004",
+      "sectionId": "SEC-403",
+      "text": "Energy is used when executing smart contracts, such as USDT TRC-20 transfers, while Bandwidth is used to transmit transaction data to the network. Read more about how these resources work and how they affect expenses in the article on fees in Trust Wallet.",
+      "status": "Verified",
+      "entities": [
+        "Energy",
+        "Bandwidth",
+        "USDT TRC-20"
+      ],
+      "inputHash": "f9d724aa660428df969349370aa9bed29c60277491226616dbd8c5d8e4b5f29c",
+      "verificationNote": "Сверено с опубликованным первоисточником."
+    },
+    {
+      "id": "CHK-404",
+      "documentId": "DOC-004",
+      "sectionId": "SEC-404",
+      "text": "TRONSCAN allows you to view resources directly for a specific TRON address.",
+      "status": "Verified",
+      "entities": [
+        "TRON"
+      ],
+      "inputHash": "c3191bc90b6d55d1a8c18bf714a5a7f6a19ceaa3ab34ae7b906b394ef18ec3ef",
+      "verificationNote": "Сверено с опубликованным первоисточником."
+    },
+    {
+      "id": "CHK-405",
+      "documentId": "DOC-004",
+      "sectionId": "SEC-405",
+      "text": "The location of this data and item names may vary depending on the Trust Wallet version.",
+      "status": "Verified",
+      "entities": [],
+      "inputHash": "eebbdcf51f7066b3d8c572e223a0f27ecdcba3da35323f0a28d66658832b7889",
+      "verificationNote": "Сверено с опубликованным первоисточником."
+    }
+  ]
+}
