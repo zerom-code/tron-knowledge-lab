@@ -1,0 +1,47 @@
+# Local credentials
+.env
+.env.*
+!.env.example
+.dev.vars
+
+# Personal notes and recordings
+/private/
+/START_WINDOWS.ru.md
+/DEMO_GUIDE.ru.md
+/DEPLOYMENT.ru.md
+/GITHUB_SUBMISSION.ru.md
+/docs/IMPLEMENTATION_LOG.ru.md
+/artifacts/
+*.mp4
+*.mov
+*.webm
+
+# Python, checks and build output
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+.coverage.*
+htmlcov/
+coverage.xml
+build/
+dist/
+*.egg-info/
+
+# Local data and packages
+*.zip
+*.db
+*.sqlite
+*.sqlite3
+*.dump
+*.log
+
+# Editor and OS files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
